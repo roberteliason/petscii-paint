@@ -1,0 +1,53 @@
+$black: #000000;
+$white: #FFFFFF;
+$red: #880000;
+$cyan: #AAFFEE;
+$magenta: #CC44CC;
+$green: #00CC55;
+$blue: #0000AA;
+$yellow: #EEEE77;
+$light_brown: #DD8855;
+$brown: #664400;
+$light_red: #FF7777;
+$dark_gray: #333333;
+$gray: #777777;
+$light_green: #AAFF66;
+$light_blue: #0088FF;
+$light_gray: #BBBBBB;
+
+$chars_x: 40;
+$chars_y: 25;
+$char_h: 16px;
+$char_w: 16px;
+
+$screen_width: $chars_x * $char_w;
+$screen_height: $chars_y * $char_h;
+
+@font-face {
+	font-family: 'PETSCII';
+	src: url('../fonts/C64_Pro-STYLE.woff2') format('woff2'), /* Super Modern Browsers */
+	url('../fonts/C64_Pro-STYLE.woff') format('woff'), /* Pretty Modern Browsers */
+	url('../fonts/C64_Pro-STYLE.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+root, html {
+	font-family: 'PETSCII', monospace;
+	background: $blue;
+	color: $light_blue;
+}
+
+main {
+	display: flex;
+	padding: 40px;
+}
+
+.screen {
+	width: $screen_width;
+	height: $screen_height;
+	background: $light_blue;
+	cursor: $blue;
+}
+
+.palette {
+	width: 100px;
+}
