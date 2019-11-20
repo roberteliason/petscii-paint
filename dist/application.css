@@ -1,28 +1,38 @@
 @font-face {
-  font-family: 'PETSCII';
+  font-family: "PETSCII";
   src: url(/fonts/C64_Pro-STYLE.woff2?9bb094e2e432f03c308a62c10654a11c) format("woff2"), url(/fonts/C64_Pro-STYLE.woff?a9289184d6aae27d3aefe442f1133fa2) format("woff"), url(/fonts/C64_Pro-STYLE.ttf?b7376b0712adb5372178a497af588833) format("truetype");
   /* Safari, Android, iOS */
 }
 
 root,
 html {
-  font-family: 'PETSCII', monospace;
-  background: #0000AA;
-  color: #0088FF;
+  font-family: "PETSCII", monospace;
+  background: #0088FF;
+  color: #0000AA;
 }
 
 main {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 40px;
 }
 
 .screen {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   width: 640px;
   height: 400px;
-  background: #0088FF;
-  cursor: #0000AA;
+  background: #0000AA;
+  color: #0088FF;
+}
+
+.screen .char {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
 }
 
 .palette {

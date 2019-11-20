@@ -1,4 +1,4 @@
-let mix = require('webpack-mix').mix;
+let mix = require('laravel-mix');
 
 mix.sass('src/scss/application.scss', 'dist')
     .js('src/js/application.js', 'dist')

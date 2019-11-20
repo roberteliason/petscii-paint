@@ -32,8 +32,8 @@ $screen_height: $chars_y * $char_h;
 
 root, html {
 	font-family: 'PETSCII', monospace;
-	background: $blue;
-	color: $light_blue;
+	background: $light_blue;
+	color: $blue;
 }
 
 main {
@@ -42,10 +42,20 @@ main {
 }
 
 .screen {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
 	width: $screen_width;
 	height: $screen_height;
-	background: $light_blue;
-	cursor: $blue;
+	background: $blue;
+	color: $light_blue;
+
+	.char {
+		display: inline-block;
+		width: $char_w;
+		height: $char_h;
+		overflow: hidden;
+	}
 }
 
 .palette {
