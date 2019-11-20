@@ -1,27 +1,5 @@
-$black: #000000;
-$white: #FFFFFF;
-$red: #880000;
-$cyan: #AAFFEE;
-$magenta: #CC44CC;
-$green: #00CC55;
-$blue: #0000AA;
-$yellow: #EEEE77;
-$light_brown: #DD8855;
-$brown: #664400;
-$light_red: #FF7777;
-$dark_gray: #333333;
-$gray: #777777;
-$light_green: #AAFF66;
-$light_blue: #0088FF;
-$light_gray: #BBBBBB;
-
-$chars_x: 40;
-$chars_y: 25;
-$char_h: 16px;
-$char_w: 16px;
-
-$screen_width: $chars_x * $char_w;
-$screen_height: $chars_y * $char_h;
+@import "vars";
+@import "colors";
 
 @font-face {
 	font-family: 'PETSCII';
@@ -32,13 +10,37 @@ $screen_height: $chars_y * $char_h;
 
 root, html {
 	font-family: 'PETSCII', monospace;
+	font-size: $char_h;
 	background: $light_blue;
 	color: $blue;
 }
 
 main {
 	display: flex;
+	flex-direction: column;
 	padding: 40px;
+}
+
+a {
+	text-decoration: none;
+	color: initial;
+}
+
+
+.char {
+	display: inline-block;
+	width: $char_w;
+	height: $char_h;
+	overflow: hidden;
+	cursor: grab;
+
+	&:hover, &:active {
+		filter: invert(100%);
+	}
+}
+
+.swatch {
+	cursor: grab;
 }
 
 .screen {
@@ -49,15 +51,62 @@ main {
 	height: $screen_height;
 	background: $blue;
 	color: $light_blue;
+	cursor: crosshair;
+}
 
-	.char {
-		display: inline-block;
-		width: $char_w;
-		height: $char_h;
-		overflow: hidden;
+.tools {
+	display: flex;
+}
+
+.color-picker {
+	display: flex;
+	width: $char_w * 22;
+	height: $char_h * 6;
+
+	.selected-color {
+		width: $char_w * 5;
+		height: $char_h * 4;
+		padding: $char_h $char_w $char_h 0;
+
+		.swatch {
+			width: $char_w * 4;
+			height: 100%;
+			font-size: $char_h * 4;
+		}
+	}
+
+	.color-palette {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		padding: $char_h $char_w $char_h 0;
+
+		.swatch {
+			display: inline-block;
+			width: $char_w * 2;
+			height: $char_h * 2;
+		}
 	}
 }
 
-.palette {
-	width: 100px;
+.palettes {
+	width: $screen_width - $char_w * 22;
+
+	.tabs {
+		display: flex;
+
+		.tab {
+			padding: $char_h / 2 $char_w / 2;
+		}
+	}
+
+	.palette {
+		display: none;
+		flex-wrap: wrap;
+		align-content: flex-start;
+
+		&.selected {
+			display: flex;
+		}
+	}
 }
