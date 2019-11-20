@@ -23,7 +23,7 @@ for (let i=1; i<=16; i++) {
 }
 
 for (let i=1; i<=40*25; i++) {
-    screen.innerHTML += '<span class="char" data-fg-color="15" data-char-no="0032">' + String.fromCharCode(9618) + '</span>';
+    screen.innerHTML += '<span class="char" data-fg-color="15" data-char-no="0032">' + String.fromCharCode(32) + '</span>';
 }
 
 
